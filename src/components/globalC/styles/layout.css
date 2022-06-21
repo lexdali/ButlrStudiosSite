@@ -1,0 +1,134 @@
+/* 
+
+
+---------------------------- UNIVERSAL ---------------------------- */
+:root {
+    --background-color: black;
+    --text-color: white;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+}
+
+
+
+/* ---------------------------- HEADER ---------------------------- */
+header {
+    height: 75px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: black;
+    color: white;
+}
+
+header button {
+
+    padding: 20px;
+    border: none;
+
+    background-color: black;
+    color: white;
+}
+header button:hover {
+    background-color: rgb(88, 88, 88);
+}
+
+header a {
+    margin: 0 40%;
+
+    color: white;
+    text-decoration: none;
+}
+
+header p {
+    font-size: 25px;
+}
+
+
+
+
+/* ---------------------------- FOOTER ---------------------------- */
+footer {
+    height: 75px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: black;
+    color: white;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer p {
+    margin: 0 40%;
+
+    color: white;
+}
+
+
+
+/* ---------------------------- HERO SECTION ---------------------------- */
+#hero {
+    height: 100vh;
+}
+
+#hero .text p, #hero .text h1{
+    display: inline;
+    font-size: 50px;
+
+    text-decoration: none;
+}
+
+#hero .text {
+    margin: 30vh 0 0 10vw;;
+}
+
+#hero .text a {
+    color: black;
+}
+
+
+
+/* ---------------------------- PORTFOLIO SCROLL SECTION ---------------------------- */
+#portfolio-scroll {
+    height: 20vh;
+    border: 10px solid black;
+}
+
+
+/* ---------------------------- PROMO SECTION 1 ---------------------------- */
+#promo-1 {
+    height: 110vh;
+
+    padding: 0 10vw;
+    border: 5px solid purple;
+    margin-top: 20px;
+}
+
+
+
+/* ---------------------------- CASE STUDIES LINK SECTION ---------------------------- */
+#case-studies-link {
+    height: 50vh;
+
+    padding: 0 10vw;
+    border: 5px solid maroon;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
