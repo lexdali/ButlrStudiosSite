@@ -1,12 +1,16 @@
 import React from 'react'
 
+import { Link } from 'gatsby'
+
 const CaseStudiesLink = () => {
   return (
+    <Link to='#'>
     <section id='case-studies-link'>
         
-        <p>Coolio</p>
+      <p>Coolio</p>
 
     </section>
+    </Link>
   )
 }
 

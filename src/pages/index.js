@@ -7,6 +7,8 @@ import Hero from "../components/home/Hero"
 import PortfolioScroll from "../components/home/PortfolioScroll"
 import PromoSection1 from "../components/home/PromoSection1"
 import CaseStudiesLink from "../components/home/CaseStudiesLink"
+import PromoSection2 from "../components/home/PromoSection2"
+import ContactSection from "../components/home/ContactSection"
 
 const IndexPage = () => {
   return (
@@ -15,11 +17,15 @@ const IndexPage = () => {
 
       <Hero />
 
-      <PortfolioScroll />
+      {/* <PortfolioScroll /> */}
 
       <PromoSection1 />
 
       <CaseStudiesLink />
+
+      <PromoSection2 />
+
+      <ContactSection />
 
     </Layout>
   )

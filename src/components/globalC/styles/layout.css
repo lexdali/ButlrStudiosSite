@@ -3,9 +3,13 @@
 
 ---------------------------- UNIVERSAL ---------------------------- */
 :root {
-    --background-color: black;
+    --background-color: #000D1E;
     --text-color: white;
 }
+::selection {
+    background: red;
+    transition: all 750ms ease-in-out;
+  }
 
 * {
     margin: 0;
@@ -16,9 +20,197 @@ a {
     text-decoration: none;
 }
 
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
 
 
 /* ---------------------------- HEADER ---------------------------- */
+
+/* NAVIGATION MENU */
+
+.menu {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+}
+
+.hr {
+    position: fixed;
+
+    left: 50%;
+    width: 6px;
+    height: 100vh;
+
+    background-color: pink;
+
+    z-index: 1;
+
+    transform: scaleY(0);
+}
+
+.menu-left, .menu-right {
+    position: fixed;
+
+    width: 50%;
+    height: 100vh;
+
+    background-color: black;
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    z-index: -1;
+}
+
+.menu-left {
+    left: 0%;
+}
+
+.menu-right {
+    right: 0%;
+}
+
+.menu-link a {
+    text-decoration: none;
+    color: white;
+
+    font-size: 100px;
+}
+
+.menu-link:first-child a::before {
+    display: block;
+    position: relative;
+
+    content: "";
+
+    background-image: url('');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    top: 80px;
+    left: 0;
+    height: 40px;
+    width: 240px;
+}
+
+.menu-link a span {
+    font-size: 24px;
+
+}
+
+.contact .title {
+    font-size: 80px;
+}
+
+.contact .info {
+    font-weight: lighter;
+}
+
+.mail {
+    margin-bottom: 60px;
+}
+
+.menu-close {
+    z-index: 2;
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+
+    /* background-color: red; */
+}
+
+.menu-close-img button {
+    width: 140px;
+    height: 140px;
+    border-radius: 100%;
+    border: 10px solid black;
+
+    font-size: 35px;
+
+    cursor: pointer;
+
+    background-color: rgb(120, 0, 0);
+
+    transition: background-color 1s ease-in;
+    
+}
+.menu-close-img button:hover {
+    background-color: red;
+    transition: transform 200ms ease-in-out;
+}
+.menu-close-img button:active {
+    transform: scale(1.15);
+}
+
+
+
+/* Animations */
+
+.menu-close-img .closing {
+    animation-name: close-menu-button;
+    animation-duration: 500ms;
+    animation-timing-function: linear;
+    animation-delay: 250ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.menu-left.closing {
+    animation: menu-left-move 1s ease-out 1.6s 1 forwards;
+}
+
+.menu-right.closing {
+    animation: menu-right-move 1s ease-out 1.1s 1 forwards;
+}
+
+.menu-container.closing {
+    display: none;
+}
+
+
+
+
+@keyframes close-menu-button {
+    to {
+        background-color: transparent;
+        color: transparent;  
+        display: none;
+
+        cursor: default;
+    }
+}
+
+@keyframes menu-left-move {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-110%);
+        display: none;
+    }
+}
+
+@keyframes menu-right-move {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(110%);
+        display: none;
+    }
+}
+
+/* -------------------------------------------------------- */
+
 header {
     height: 75px;
 
@@ -84,6 +276,12 @@ footer p {
 /* ---------------------------- HERO SECTION ---------------------------- */
 #hero {
     height: 100vh;
+
+    background-image: url('../../../images/mona.svg');
+    background-repeat: no-repeat;
+
+    background-size: 700px;
+    background-position: 1000px 0;
 }
 
 #hero .text p, #hero .text h1{
@@ -94,19 +292,74 @@ footer p {
 }
 
 #hero .text {
-    margin: 30vh 0 0 10vw;;
+    width: 700px;
+
+    margin: 30vh 0 0 10vw;
 }
 
 #hero .text a {
-    color: black;
+    color: var(--text-color);
 }
+
+.buttons {
+    width: 700px;
+
+    margin: 5vh 0 0 10vw;
+}
+
+.btn
+{
+    cursor: pointer;
+    display: inline-block;
+    padding: 14px 40px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 45px;
+    border: 2px solid transparent;
+    font-weight: 600;
+    transition: all 1s ease;
+    text-decoration: none;
+}
+.btn:hover
+{
+    background-color: transparent;
+    border-color: white;
+}
+
+.btn-light
+{
+    background-color: transparent;
+    border-color: white;
+}
+.btn-light:hover
+{
+    color: var(--background-color);
+    background-color: white;
+    border-color: transparent;
+}
+
 
 
 
 /* ---------------------------- PORTFOLIO SCROLL SECTION ---------------------------- */
 #portfolio-scroll {
+    overflow: hidden;
+
     height: 20vh;
-    border: 10px solid black;
+
+
+    border: 10px solid white;
+}
+
+#portfolio-scroll img {
+    width: 200px;
+    height: 100px;
+
+    transition: transform 15s ease;
+}
+
+#portfolio-scroll:hover img {
+    transform: translate(110vw, 0);
 }
 
 
@@ -117,7 +370,35 @@ footer p {
     padding: 0 10vw;
     border: 5px solid purple;
     margin-top: 20px;
+
+    text-align: center;
 }
+
+#promo-1 .flex-container {
+    display: flex;
+    justify-content: center;
+    gap: 500px;
+
+    text-align: left;
+}
+
+#promo-1 .flex-container .col {
+    width: 300px;
+
+    border: 1px solid white;
+}
+
+#promo-1 .flex-container .col:nth-child(1) {
+    width: 450px;
+
+
+}
+
+#promo-1 .flex-container .heading {
+    font-size: 30px;
+    font-weight: bold;
+}
+
 
 
 
@@ -128,7 +409,129 @@ footer p {
     padding: 0 10vw;
     border: 5px solid maroon;
 
+    font-size: 90px;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
+    background-color: aquamarine;
+}
+
+#case-studies-link {
+    color: black;
+}
+
+
+
+
+/* ---------------------------- PROMO SECTION 2 ---------------------------- */
+#promo-2 {
+    height: 50vh;
+
+    border: 1px solid red;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#promo-2 .text {
+
+    font-size: 70px;
+    text-align: center;
+}
+
+#promo-2 .text a {
+    color: white;
+    font-size: 35px;
+}
+
+
+/* ---------------------------- CONTACT SECTION 2 ---------------------------- */
+#contact-section {
+    height: 40vh;
+
+    /* border: 1px solid white; */
+
+    background-color: black;
+    color: cornsilk;
+
+    text-align: center;
+}
+
+#contact-section h2 {
+margin-top: 20px;
+
+    font-size: 30px;
+
+}
+
+#contact-section .carousel {
+    height: 10vh;
+
+    margin-top: 40px;
+
+    font-size: 40px;
+
+    /* background-color: purple; */
+}
+
+#contact-section .flex-container {
+
+    display: flex;
+    justify-content: center;
+
+    gap: 600px;
+}
+
+#contact-section .flex-container .col {
+    /* Debug */
+    border: 5px dashed red;
+
+    margin-top: 10px;
+}
+
+#contact-section .flex-container .col:nth-child(2) {
+    text-align: left;
+    font-size: 30px;
+
+    color: cornsilk;
+}
+#contact-section .flex-container .col:nth-child(2) a {
+    color: cornsilk;
+
+    text-decoration: underline;
+}
+
+.form-input {
+    width: 200px;
+
+    float: left;
+
+    margin-top: 15px;
+    border: none;
+    border-bottom: 1px solid grey;
+
+    background-color: black;
+    color: grey;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    outline: none;
+
+    transition: all 750ms ease-in-out;
+}
+.form-input:focus {
+    color: cornsilk;
+
+    border-bottom: 1px solid cornsilk;
+    
+}
+.form-input:last-child {
+    width: 100%;
+
+    margin-top: 30px;
 }

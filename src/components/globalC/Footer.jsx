@@ -3,6 +3,9 @@ import React from 'react'
 import { Link } from 'gatsby'
 
 const Footer = () => {
+
+  
+
   return (
     <footer>
         <Link to="#">Terms of Use</Link>

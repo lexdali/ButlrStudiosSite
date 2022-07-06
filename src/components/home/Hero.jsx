@@ -11,6 +11,12 @@ const Hero = () => {
         <br />
         <p>We build web-solutions<br />developed with <span>skill</span> &#38; <span>passion</span></p>
     </div>
+
+    <div className="buttons">
+      <a className='btn' href="http://sig.xorex.net/">SigMonD</a>
+      <Link className='btn btn-light' to="/contact">Contact Us</Link>
+    </div>
+
     </section>
   )
 }
