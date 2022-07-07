@@ -6,40 +6,48 @@ import { useState } from 'react';
 
 const Header = () => {
 
-  const [closeMenuStyle, setCloseMenuStyle] = useState('');
+  const [openMenu, setOpenMenu] = useState('');
   const [closeMenu, setCloseMenu] = useState('');
 
-  
+  const a = 'open';
+  const b = 'close';
+  const c = '';
 
-  const handleMenuClose = e => {
-    setCloseMenuStyle(closeMenuStyle + ' closing');
-
-    handleMenuRemoval();
+  const handleMenuOpen = () => {
+    if(openMenu == ''){
+      setOpenMenu(a);
+    }
   }
 
-  const handleMenuRemoval = () => {
-    setTimeout(() => {
-      setCloseMenu(closeMenu + ' closing');
-    }, 3000);
+  const handleMenuClose = () => {
+    if(closeMenu == ''){
+      setCloseMenu(b);
+
+      setTimeout(() => {
+        setOpenMenu(c);
+        setCloseMenu(c);
+      }, 2000);
+    }
   }
+
 
   return (
     <header>
 
-        <div className={ "menu-container" + closeMenu }>
+        <div className={ `menu-container ${openMenu} ${closeMenu}` }>
           <div className="menu-close">
-            <div className="menu-close-img"><button onClick={handleMenuClose} className={ 'menu-close-img close-btn' + closeMenuStyle } src="close-icon.png" alt="close">Close</button></div>
+            <div className="menu-close-img"><button onClick={ handleMenuClose } className={ `menu-close-img close-btn ${openMenu}` } src="close-icon.png" alt="close">Close</button></div>
           </div>
           <div className="hr"></div>
           <div className="menu">
-            <div className={"menu-left" + closeMenuStyle}>
-              <div className="menu-links">
-                <div className="menu-link"><Link to='#'>Home <span>01</span></Link></div>
-                <div className="menu-link"><Link to='#'>Case Studies <span>02</span></Link></div>
-                <div className="menu-link"><Link to='#'>About Us <span>03</span></Link></div>
-              </div>
+            <div className={ `menu-left ${openMenu}` }>
+            
+              <Link className='menu-link' to='/'>Home</Link>
+              <Link className='menu-link' to='/'>Case Studies</Link>
+              <Link className='menu-link' to='/'>About Us</Link>
+            
             </div>
-            <div className={"menu-right" + closeMenuStyle}>
+            <div className={ `menu-right ${openMenu}` }>
               <div className="contact">
                 <div className="mail">
                   <div><span className="title">Contact</span><br /><br /></div>
@@ -57,7 +65,7 @@ const Header = () => {
           </div>
         </div>
 
-        <button>Menu</button>
+        <button onClick={handleMenuOpen}>Menu</button>
         <Link to="/"><h1>Header</h1></Link>
         <p>Contact Us</p>
     </header>
