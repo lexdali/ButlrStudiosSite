@@ -1,6 +1,50 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useState } from 'react'
 
 const ContactSection = () => {
+
+  const formID = 'VbHWDGWO';
+  const formSparkURL = `https://submit-form.com/${formID}`;
+
+  const defaultFormState = {
+    name: '',
+    email: '',
+    message: '',
+  }
+
+  const [formState, setFormState] = useState(defaultFormState);
+
+  const handleFormSubmission = async event => {
+    event.preventDefault();
+    await postSubmission();
+  };
+
+  const postSubmission = async () => {
+    const payload = {
+      ...formState
+    }
+
+    //promise
+    try {
+      const result = await axios.post(formSparkURL, payload);
+      console.log(result);
+      alert('Success!!!')
+    } catch(error) {
+      console.log(error);
+    }
+
+  }
+
+  const updateFormControl = event => {
+    const { id, value } = event.target;
+    const formKey = id;
+
+    const updatedFormState = { ...formState }
+    updatedFormState[formKey] = value;
+
+    setFormState(updatedFormState);
+  }
+
   return (
     <section id='contact-section' >
 
@@ -10,10 +54,37 @@ const ContactSection = () => {
 
         <div className="flex-container">
             <div className="form col">
-              <form>
-                <input placeholder='John Wick' className='form-input' type="text" /> <br />
-                <input placeholder='jw@butlrstudios.com' className='form-input' type="email" /> <br />
-                <textarea placeholder='I would like to make a dinner reservation for twelve.' className='form-input'></textarea>
+              <form onSubmit={ handleFormSubmission } >
+                <label className='form-label' htmlFor="name">Name:</label>
+                <input
+                 onChange={updateFormControl}
+                 placeholder='John Wick'
+                 className='form-input'
+                 type="text"
+                 value={formState.name}
+                 id='name'
+                /> <br />
+
+                <label className='form-label' htmlFor="email">Email:</label>
+                <input
+                 onChange={updateFormControl}
+                 placeholder='jw@butlrstudios.com'
+                 className='form-input'
+                 type="email"
+                 value={formState.email}
+                 id='email'
+                /> <br />
+
+                <label className='form-label' htmlFor="message">Message:</label>
+                <textarea
+                 onChange={updateFormControl}
+                 placeholder='I would like to make a dinner reservation for twelve.'
+                 className='form-input'
+                 value={formState.message}
+                 id='message'
+                ></textarea> <br /><br />
+
+                <button type='submit' >Submit</button>
               </form>
             </div>
 

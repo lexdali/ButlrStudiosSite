@@ -23,6 +23,8 @@ a {
 body {
     background-color: var(--background-color);
     color: var(--text-color);
+
+    font-family: 'Montserrat', sans-serif;
 }
 
 
@@ -498,7 +500,7 @@ margin-top: 20px;
 
 #contact-section .flex-container .col {
     /* Debug */
-    border: 5px dashed red;
+    /* border: 5px dashed red; */
 
     margin-top: 10px;
 }
@@ -515,10 +517,14 @@ margin-top: 20px;
     text-decoration: underline;
 }
 
+.form-label {
+    margin-right: 20px;
+}
+
 .form-input {
     width: 200px;
 
-    float: left;
+    /* float: right; */
 
     margin-top: 15px;
     border: none;
@@ -544,4 +550,15 @@ margin-top: 20px;
     width: 100%;
 
     margin-top: 30px;
+}
+
+.form button {
+
+    width: 60px;
+    height: 60px;
+
+    margin-left: 20px;
+    margin-top: 40px;
+
+    border-radius: 100%;
 }
