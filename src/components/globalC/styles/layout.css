@@ -229,6 +229,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 30%;
 
     background-color: black;
     color: white;
@@ -247,13 +248,17 @@ header button:hover {
 }
 
 header a {
-    margin: 0 40%;
+    /* margin: 0 40%; */
 
     color: white;
     text-decoration: none;
 }
 
-header p {
+.header-contact-link {
+    display: inline;
+    /* width: 200px; */
+    /* border: 1px solid red; */
+    
     font-size: 25px;
 }
 
@@ -377,33 +382,53 @@ footer p {
 
 /* ---------------------------- PROMO SECTION 1 ---------------------------- */
 #promo-1 {
-    height: 110vh;
+    height: 130vh;
 
     padding: 0 10vw;
-    border: 5px solid purple;
+    /* border: 5px solid purple; */
     margin-top: 20px;
 
     text-align: center;
 }
 
+#promo-1 .heading-text {
+    
+    margin-bottom: 80px;
+    padding: 0 100px;
+    /* border: 1px solid red; */
+
+    font-size: 40px;
+
+}
+
 #promo-1 .flex-container {
     display: flex;
     justify-content: center;
-    gap: 500px;
+    gap: 25px;
 
     text-align: left;
 }
 
 #promo-1 .flex-container .col {
-    width: 300px;
+    width: 800px;
 
-    border: 1px solid white;
+    /* border: 1px solid white; */
 }
 
 #promo-1 .flex-container .col:nth-child(1) {
     width: 450px;
 
+    margin-top: 200px;
+    margin-left: 50px;
+}
 
+.kinza {  /* Image */
+    /* height: 600px; */
+    width: 100%; 
+}
+
+.acnenetto {
+    width: 100%;
 }
 
 #promo-1 .flex-container .heading {
@@ -419,7 +444,7 @@ footer p {
     height: 50vh;
 
     padding: 0 10vw;
-    border: 5px solid maroon;
+    /* border: 5px solid maroon; */
 
     font-size: 90px;
 
@@ -441,7 +466,7 @@ footer p {
 #promo-2 {
     height: 50vh;
 
-    border: 1px solid red;
+    /* border: 1px solid red; */
     
     display: flex;
     justify-content: center;
@@ -463,7 +488,7 @@ footer p {
 
 /* ---------------------------- CONTACT SECTION 2 ---------------------------- */
 #contact-section {
-    height: 40vh;
+    height: 55vh;
 
     /* border: 1px solid white; */
 

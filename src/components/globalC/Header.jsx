@@ -67,7 +67,7 @@ const Header = () => {
 
         <button onClick={handleMenuOpen}>Menu</button>
         <Link to="/"><h1>Header</h1></Link>
-        <p>Contact Us</p>
+        <Link className='header-contact-link' to='#contact-section'>Contact Us</Link>
     </header>
   )
 }

@@ -28,11 +28,10 @@ const ContactSection = () => {
     try {
       const result = await axios.post(formSparkURL, payload);
       console.log(result);
-      alert('Success!!!')
+      alert('Success!!!');
     } catch(error) {
       console.log(error);
     }
-
   }
 
   const updateFormControl = event => {

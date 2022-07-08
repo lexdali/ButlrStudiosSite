@@ -7,7 +7,7 @@ const CaseStudiesLink = () => {
     <Link to='#'>
     <section id='case-studies-link'>
         
-      <p>Coolio</p>
+      <p>CASE STUDIES</p>
 
     </section>
     </Link>
