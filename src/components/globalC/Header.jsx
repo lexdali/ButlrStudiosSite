@@ -1,25 +1,60 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { useState } from 'react';
+import { useState, useCallback, useEffect } from 'react';
+import Loader from './Loader';
 
 
 
-const Header = () => {
+const Header = ({ isMenuKeyPressed }) => {
 
   const [openMenu, setOpenMenu] = useState('');
   const [closeMenu, setCloseMenu] = useState('');
+
+  const [loaded, setLoaded] = useState(false);
+  const [blink, setBlink] = useState('');
+  let alreadyClickedMenuButton = false;
 
   const a = 'open';
   const b = 'close';
   const c = '';
 
-  const handleMenuOpen = () => {
+  const handleMenuButtonBlink = () => {
+    if(!loaded) {
+      setLoaded(true);
+      console.log('Loaded!');
+      timer();
+    }
+  }
+
+  const timer = () => {
+    let sec = 0;
+    let timer = setInterval(() => {
+        sec++;
+        // console.log(sec);
+        if (sec == 10) {
+            // console.log('Start Blinking!');
+            setBlink('blink');
+        }
+    }, 1000);
+  }
+
+  if(isMenuKeyPressed) {
+    handleKeyDown();
+  }
+
+  const handleKeyDown = () => {}
+
+  const handleMenuOpen = e => {
+    setBlink('');
+
     if(openMenu == ''){
       setOpenMenu(a);
     }
   }
 
   const handleMenuClose = () => {
+    setBlink('');
+
     if(closeMenu == ''){
       setCloseMenu(b);
 
@@ -30,11 +65,32 @@ const Header = () => {
     }
   }
 
+    // handle what happens on key press
+    const handleKeyPress = useCallback((event) => {
+      console.log(`Key pressed: ${event.key}`);
+
+      if(event.key == 'm') {
+        handleMenuOpen();
+      }
+
+      if(event.key == 'x') {
+        handleMenuClose();
+      }
+    }, []);
+  
+    useEffect(() => {
+      // attach the event listener
+      document.addEventListener('keydown', handleKeyPress);
+  
+      // remove the event listener
+      return () => {
+        document.removeEventListener('keydown', handleKeyPress);
+      };
+    }, [handleKeyPress]);
 
   return (
-    <header>
-
-        <div className={ `menu-container ${openMenu} ${closeMenu}` }>
+    <>
+    <div className={ `menu-container ${openMenu} ${closeMenu}` }>
           <div className="menu-close">
             <div className="menu-close-img"><button onClick={ handleMenuClose } className={ `menu-close-img close-btn ${openMenu}` } src="close-icon.png" alt="close">Close</button></div>
           </div>
@@ -63,12 +119,15 @@ const Header = () => {
               </div>
             </div>
           </div>
-        </div>
+    </div>
 
-        <button onClick={handleMenuOpen}>Menu</button>
-        <Link to="/"><h1>Header</h1></Link>
+    <header>
+        <button className={ blink } onClick={handleMenuOpen}>Menu</button>
+        <Link to="/"><h1>ButlrStudios</h1></Link>
         <Link className='header-contact-link' to='#contact-section'>Contact Us</Link>
     </header>
+    <Loader onLoad={ handleMenuButtonBlink() } />
+    </>
   )
 }
 

@@ -8,14 +8,15 @@ import Header from './Header'
 import Footer from './Footer'
 
 
-const Layout = ({ children, siteTitle }) => {
+const Layout = ({ children, siteTitle, isMenuKeyPressed }) => {
+
   return (
     <>
     {/* Head */}
     <Head title={ siteTitle } />
 
     {/* Body */}
-    <Header />
+    <Header isMenuKeyPressed={ isMenuKeyPressed } />
       { children }
     <Footer />
     </>

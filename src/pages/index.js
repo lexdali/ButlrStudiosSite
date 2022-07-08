@@ -11,11 +11,12 @@ import PromoSection2 from "../components/home/PromoSection2"
 import ContactSection from "../components/home/ContactSection"
 
 const IndexPage = () => {
-  return (
 
+  return (
+    <div>
     <Layout>
 
-      <Hero />
+      <Hero/>
 
       {/* <PortfolioScroll /> */}
 
@@ -28,6 +29,7 @@ const IndexPage = () => {
       <ContactSection />
 
     </Layout>
+    </div>
   )
 }
 
