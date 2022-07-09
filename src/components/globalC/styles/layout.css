@@ -226,6 +226,8 @@ body {
 /* -------------------------------------------------------- */
 
 header {
+    /* position: fixed; */
+
     height: 75px;
 
     display: flex;
@@ -318,11 +320,22 @@ footer p {
 #hero {
     height: 100vh;
 
-    background-image: url('../../../images/mona.svg');
+    /* background-image: url('../../../images/cat.svg');
     background-repeat: no-repeat;
 
     background-size: 700px;
-    background-position: 1000px 0;
+    background-position: 1000px 0; */
+}
+
+#hero img {
+    width: 700px;
+
+    position: relative;
+
+    left: 55%;
+    bottom: 500px;
+
+    z-index: -1;
 }
 
 #hero .text p, #hero .text h1{
@@ -352,6 +365,8 @@ footer p {
 {
     cursor: pointer;
     display: inline-block;
+
+    margin-right: 30px;
     padding: 14px 40px;
     background-color: #007bff;
     color: #fff;
@@ -465,7 +480,7 @@ footer p {
 
 /* ---------------------------- CASE STUDIES LINK SECTION ---------------------------- */
 #case-studies-link {
-    height: 50vh;
+    height: 110vh;
 
     padding: 0 10vw;
     /* border: 5px solid maroon; */
@@ -488,7 +503,7 @@ footer p {
 
 /* ---------------------------- PROMO SECTION 2 ---------------------------- */
 #promo-2 {
-    height: 50vh;
+    height: 110vh;
 
     /* border: 1px solid red; */
     

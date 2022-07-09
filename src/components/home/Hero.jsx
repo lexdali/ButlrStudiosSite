@@ -1,5 +1,7 @@
 import React from 'react'
 
+import cat from '../../images/cat.svg'
+
 import { Link } from 'gatsby'
 
 const Hero = () => {
@@ -16,6 +18,8 @@ const Hero = () => {
       <a className='btn' href="http://sig.xorex.net/">SigMonD</a>
       <Link className='btn btn-light' to="/contact">Contact Us</Link>
     </div>
+
+    <img src={ cat } alt="cat" />
 
     </section>
   )
