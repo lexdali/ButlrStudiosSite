@@ -18,7 +18,7 @@ const IndexPage = () => {
 
       <Hero/>
 
-      {/* <PortfolioScroll /> */}
+      <PortfolioScroll />
 
       <PromoSection1 />
 

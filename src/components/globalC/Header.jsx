@@ -99,8 +99,8 @@ const Header = ({ isMenuKeyPressed }) => {
             <div className={ `menu-left ${openMenu}` }>
             
               <Link className='menu-link' to='/'>Home</Link>
-              <Link className='menu-link' to='/'>Case Studies</Link>
-              <Link className='menu-link' to='/'>About Us</Link>
+              <Link className='menu-link' to='/case-studies'>Case Studies</Link>
+              <Link className='menu-link' to='/about'>About Us</Link>
             
             </div>
             <div className={ `menu-right ${openMenu}` }>

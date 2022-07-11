@@ -15,6 +15,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overscroll-behavior-inline: contain;
 }
 a {
     text-decoration: none;
@@ -399,25 +400,76 @@ footer p {
 
 /* ---------------------------- PORTFOLIO SCROLL SECTION ---------------------------- */
 #portfolio-scroll {
-    overflow: hidden;
+    overflow: inherit;
 
-    height: 20vh;
+    /* height: 20vh; */
 
+    /* border: 10px solid white; */
 
-    border: 10px solid white;
+    opacity: .5;
+    transition: all 250ms ease;
+}
+#portfolio-scroll:hover {
+    background-color: rgba(127, 255, 212, 0.235);
+
+    opacity: 1;
 }
 
-#portfolio-scroll img {
-    width: 200px;
-    height: 100px;
+#portfolio-scroll .grid-container {
+    height: 40vh;
 
-    transition: transform 15s ease;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 20%;
+    /* grid-template-rows: min-content; */
+
+    overflow-x: auto;
 }
 
-#portfolio-scroll:hover img {
-    transform: translate(110vw, 0);
+#portfolio-scroll .text {
+    text-align: center;
+    opacity: 1;
+
+    font-size: 36px;
+
+    cursor: default;
 }
 
+ /* Hide scrollbar for Chrome, Safari and Opera */
+ #portfolio-scroll .grid-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  #portfolio-scroll .grid-container {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  } 
+
+#portfolio-scroll .grid-container .logos {
+    /* border: 1px solid pink; */
+
+    padding: 0 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logos > img {
+    inline-size: 100%;
+    /* aspect-ratio: 4 / 3; */
+    /* object-fit: cover; */
+}
+
+.snaps-inline {
+    scroll-snap-type: inline mandatory;
+}
+
+.snaps-inline > * {
+    scroll-snap-align: start;
+}
 
 /* ---------------------------- PROMO SECTION 1 ---------------------------- */
 #promo-1 {

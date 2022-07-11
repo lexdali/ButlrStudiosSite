@@ -1,0 +1,34 @@
+#popup {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+
+    background-color: rgba(0, 0, 0, .2);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-box {
+    position: relative;
+
+    border: 3px solid rgb(15, 186, 12);
+    padding: 32px;
+
+
+    width: 100%;
+    max-width: 640px;
+
+    background-color: #000D1E;
+    color: rgb(15, 186, 12);
+}
+
+.popup-box .popup-close { /* close button */
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}

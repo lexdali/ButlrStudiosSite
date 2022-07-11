@@ -2,7 +2,7 @@ import React from 'react'
 
 import "./styles/layout.css" //Import Style
 
-// Components
+// Co mponents
 import Head from './Head'
 import Header from './Header'
 import Footer from './Footer'
