@@ -328,7 +328,7 @@ footer p {
     background-position: 1000px 0; */
 }
 
-#hero img {
+#hero #cat {
     width: 700px;
 
     position: relative;
