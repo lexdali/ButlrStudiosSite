@@ -29,7 +29,85 @@ body {
 }
 
 
+.menu-container {
+    display: none;
+    opacity: 0;
 
+    transition: all 1s ease-out;
+}
+
+
+header {
+    /* position: fixed;
+    top: 0;
+    left: 0; */
+
+    height: 75px;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    /* background-color: #000D1E; */
+    background-color: black;
+    color: white;
+}
+
+header button {
+
+    margin-right: 15px;
+    padding: 10px;
+    border: none;
+
+    background-color: black;
+    color: white;
+
+    transition: all 500ms ease-in;
+}
+header button:hover {
+    background-color: rgb(88, 88, 88);
+}
+
+.blink {
+    animation-name: menu-button-blink;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+header a {
+    /* margin: 0 40%; */
+
+    color: white;
+    text-decoration: none;
+    font-size: 10px;
+}
+
+.header-contact-link {
+    display: inline;
+    
+    margin-left: 15px;
+    
+    font-size: 16px;
+}
+
+@keyframes menu-button-blink {
+    0% {
+        background-color: black;
+    }
+    50% {
+        background-color: rgb(88, 88, 88);
+    }
+    100% {
+        background-color: black;
+    }
+}
+
+
+
+
+@media only screen and (min-width: 1000px) {
 /* ---------------------------- HEADER ---------------------------- */
 
 /* NAVIGATION MENU */
@@ -227,16 +305,19 @@ body {
 /* -------------------------------------------------------- */
 
 header {
-    /* position: fixed; */
+    /* position: fixed;
+    top: 0;
+    left: 0; */
 
     height: 75px;
+    width: 100%;
 
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 30%;
 
-    background-color: black;
+    background-color: #000D1E;
     color: white;
 }
 
@@ -395,7 +476,9 @@ footer p {
     border-color: transparent;
 }
 
-
+#sigmond-btn-tooltip {
+    width: 200px;
+}
 
 
 /* ---------------------------- PORTFOLIO SCROLL SECTION ---------------------------- */
@@ -687,4 +770,6 @@ margin-top: 20px;
 }
 .form button:hover {
     background-color: grey;
+}
+
 }
